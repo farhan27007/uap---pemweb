@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PEMWEB - MUHAMMAD FARHAN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="set.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h4>Nama : Muhammad Farhan</h4>
+        <h4>NPM : 20753023</h4>
+        <h4>Kelas : Manajemen Informatika 2a</h4>
+        <div class="d-flex">
+            <div class="employee-form">
+                <form onsubmit="event.preventDefault();dalam_kondisi_submit();" autocomplete="off">
+
+                    <div class="mb-settings">
+                        <label>Nama</label>
+                        <label class="validation-error hide" id="log-requirement-name">Kolom ini wajib diisi</label>
+                        <input type="text" name="fullName" id="fullName">
+                    </div>
+
+                    <div class="mb-settings">
+                        <label>NPM</label>
+                        <input type="text" name="npm" id="npm">
+                    </div>
+
+                    <div class="mb-settings">
+                        <label>Alamat</label>
+                        <input type="text" name="alamat" id="alamat">
+                    </div>
+
+                    <div class="mb-settings">
+                        <label>Email</label>
+                        <input type="text" name="email" id="email">
+                    </div>
+
+                    <div class="mb-settings">
+                        <label>Judul Blog</label>
+                        <input type="text" name="judulblog" id="judulblog">
+                    </div>
+
+                    <div class="form-action-buttons">
+                        <input type="submit" value="Submit">
+                    </div>
+
+                </form>
+            </div>
+            <div class="employees-table" style="margin-left:15px;">
+                
+                <table class="list" id="employeeList">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>NPM</th>
+                            <th>Alamat</th>
+                            <th>Email</th>
+                            <th>Judul blog</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
