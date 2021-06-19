@@ -92,13 +92,13 @@ function onDelete(td) {
 
 function validate() {
     isValid = true;
-    if (document.getElementById("fullName").value == "") {
+    if (document.getElementById("npm").value == "") {
         isValid = false;
-        document.getElementById("log-requirement-name").classList.remove("hide");
+        document.getElementById("log-requirement-npm").classList.remove("hide");
     } else {
         isValid = true;
-        if (!document.getElementById("log-requirement-name").classList.contains("hide"))
-            document.getElementById("log-requirement-name").classList.add("hide");
+        if (!document.getElementById("log-requirement-npm").classList.contains("hide"))
+            document.getElementById("log-requirement-npm").classList.add("hide");
     }
     return isValid;
 }
