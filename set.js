@@ -1,98 +1,98 @@
 var selectedRow = null
 function dalam_kondisi_submit() {
-    if (validate()) {
-        var formData = readFormData();
+    if (memvalidasi_data()) {
+        var formData = baca_data();
         if (selectedRow == null)
-            insertNewRecord(formData);
+            tambah_data_form(formData);
         else
-            updateRecord(formData);
-        resetForm();
+            update_data(formData);
+        reset_data_awal();
     }
 }
 
-function readFormData() {
+function baca_data() {
     var formData = {};
-    formData["fullName"] = document.getElementById("fullName").value;
-    formData["npm"] = document.getElementById("npm").value;
-    formData["alamat"] = document.getElementById("alamat").value;
-    formData["email"] = document.getElementById("email").value;
-    formData["judulblog"] = document.getElementById("judulblog").value;
+    formData["nama_mhs"] = document.getElementById("nama_mhs").value;
+    formData["npm_mhs"] = document.getElementById("npm_mhs").value;
+    formData["alamat_mhs"] = document.getElementById("alamat_mhs").value;
+    formData["email_mhs"] = document.getElementById("email_mhs").value;
+    formData["judul_blog_mhs"] = document.getElementById("judul_blog_mhs").value;
     return formData;
 }
 
-function insertNewRecord(data) {
+function tambah_data_form(data) {
 
-    var table = document.getElementById("employeeList").getElementsByTagName('tbody')[0];
+    var table = document.getElementById("result_table").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
 
     cell1 = newRow.insertCell(0);
-    cell1.innerHTML = data.fullName;
+    cell1.innerHTML = data.nama_mhs;
 
     cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.npm;
+    cell2.innerHTML = data.npm_mhs;
 
     cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.alamat;
+    cell3.innerHTML = data.alamat_mhs;
 
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.email;
+    cell4.innerHTML = data.email_mhs;
 
     cell4 = newRow.insertCell(4);
-    cell4.innerHTML = data.email; 
+    cell4.innerHTML = data.judul_blog_mhs; 
 
     cell4 = newRow.insertCell(5);
-    cell4.innerHTML = `<a onClick="onEdit(this)"><img src='pencil.svg' alt=''></a>&nbsp;
-                       <a onClick="onDelete(this)"><img src='trash.svg' alt=''></a>`;
+    cell4.innerHTML = `<a onClick="edit_data(this)"><img src='pencil.svg' alt=''></a>&nbsp;
+                       <a onClick="hapus_data(this)"><img src='trash.svg' alt=''></a>`;
 
 }
 
-function resetForm() {
-    document.getElementById("fullName").value = "";
-    document.getElementById("npm").value = "";
-    document.getElementById("alamat").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("judulblog").value = "";
+function reset_data_awal() {
+    document.getElementById("nama_mhs").value = "";
+    document.getElementById("npm_mhs").value = "";
+    document.getElementById("alamat_mhs").value = "";
+    document.getElementById("email_mhs").value = "";
+    document.getElementById("judul_blog_mhs").value = "";
     selectedRow = null;
 }
 
-function onEdit(td) {
+function edit_data(td) {
     selectedRow = td.parentElement.parentElement;
-    document.getElementById("fullName").value = selectedRow.cells[0].innerHTML;
+    document.getElementById("nama_mhs").value = selectedRow.cells[0].innerHTML;
 
-    document.getElementById("npm").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("npm_mhs").value = selectedRow.cells[1].innerHTML;
 
-    document.getElementById("alamat").value = selectedRow.cells[2].innerHTML;
+    document.getElementById("alamat_mhs").value = selectedRow.cells[2].innerHTML;
 
-    document.getElementById("email").value = selectedRow.cells[3].innerHTML;
+    document.getElementById("email_mhs").value = selectedRow.cells[3].innerHTML;
 
-    document.getElementById("judulblog").value = selectedRow.cells[4].innerHTML;
-
-}
-
-function updateRecord(formData) {
-    selectedRow.cells[0].innerHTML = formData.fullName;
-
-    selectedRow.cells[1].innerHTML = formData.npm;
-
-    selectedRow.cells[2].innerHTML = formData.alamat;
-
-    selectedRow.cells[3].innerHTML = formData.email;
-
-    selectedRow.cells[4].innerHTML = formData.judulblog;
+    document.getElementById("judul_blog_mhs").value = selectedRow.cells[4].innerHTML;
 
 }
 
-function onDelete(td) {
+function update_data(formData) {
+    selectedRow.cells[0].innerHTML = formData.nama_mhs;
+
+    selectedRow.cells[1].innerHTML = formData.npm_mhs;
+
+    selectedRow.cells[2].innerHTML = formData.alamat_mhs;
+
+    selectedRow.cells[3].innerHTML = formData.email_mhs;
+
+    selectedRow.cells[4].innerHTML = formData.judul_blog_mhs;
+
+}
+
+function hapus_data(td) {
     if (confirm('Apakah anda ingin menghapus data ini?')) {
         row = td.parentElement.parentElement;
-        document.getElementById("employeeList").deleteRow(row.rowIndex);
-        resetForm();
+        document.getElementById("result_table").deleteRow(row.rowIndex);
+        reset_data_awal();
     }
 }
 
-function validate() {
+function memvalidasi_data() {
     isValid = true;
-    if (document.getElementById("npm").value == "") {
+    if (document.getElementById("npm_mhs").value == "") {
         isValid = false;
         document.getElementById("log-requirement-npm").classList.remove("hide");
     } else {
